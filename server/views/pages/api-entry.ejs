@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <title>API</title>
+</head>
+<body>
+    Welcome to the API for this application!
+    This is a JSON API with the following routes.
+    <ul>
+        <% for(var i = 0; i < routes.length; i++) { %>
+        <li><%= routes[i] %></li>
+        <% } %>
+    </ul>
+</body>
+
+</html>
