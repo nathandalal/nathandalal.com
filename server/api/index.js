@@ -1,8 +1,12 @@
-var express = require('express')
+import express from 'express'
+import bodyParser from 'body-parser'
 var router = express.Router()
-router.use(express.static('../public'))
 
-import env from './env'
+router.use(express.static('public'))
+router.use(bodyParser.urlencoded({ extended: true }))
+router.use(bodyParser.json())
+
+import MongoHandler from './mongo/handler'
 
 var availableRoutes = [
     '/blog-posts'
@@ -14,14 +18,24 @@ router.get('/', (req, res) => {
     })
 })
 
-const internalServerError = 
-    (res, source) => res.status(500).send({ error: `Error retrieving data from ${source}.` })
-const badUserRequestError = 
-    (res, param, route) => res.status(400).send({ name: param, error: `Invalid user request to ${route} API endpoint.`})
+const ErrorResponses = {
+    internalServerError: (res, source) => res.status(500).send({ error: `Error retrieving data from ${source}.` }),
+    badUserRequestError: (res, route, reason) => res.status(400).send({ error: `Invalid user request to ${route} API endpoint.`, reason: reason })
+}
 
 //api available request routes and responses
-router.get(availableRoutes[0], (req, res) => {
-    return res.send({ text: 'Say hello to the API world!' })
+router.post(availableRoutes[0], (req, res) => {
+    if (!(req.body) || Object.keys(req.body).length == 0) 
+        return ErrorResponses.badUserRequestError(res, availableRoutes[0], "Empty POST request")
+    MongoHandler.addPost(req.body)
+    .then(blogPost => {
+        res.send({
+            published: true,
+            title: blogPost.title,
+            created: blogPost.created
+        })
+    })
+    .catch(e => ErrorResponses.badUserRequestError(res, availableRoutes[0], e))
 })
 
 //nothing matched our api requests, return 404

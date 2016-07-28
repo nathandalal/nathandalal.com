@@ -1,5 +1,21 @@
-import monggose from 'mongoose'
-mongoose.promise = Global.Promise //because mpromise is deprecated
+import mongoose from 'mongoose'
+mongoose.promise = global.Promise //because mpromise is deprecated
 
-import Config from '/server/config.js'
-console.log(Config)
+import config from '../../config'
+
+var connectionObj = null
+
+function initDb(defaultConnectionUrl) {
+    if(connectionObj) return connectionObj
+    var defaultConn = mongoose.createConnection(defaultConnectionUrl)
+
+    process.on('SIGINT', () => {
+        appDb.close(() => {
+            console.log('Mongoose default connection disconnected through app termination')
+            process.exit(0)
+        })
+    })
+    return (connectionObj = {defaultConnection:defaultConn})
+}
+
+module.exports = initDb(config.MONGO.URL)

@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-    <title>API</title>
+    <title>Nathan Dalal - API</title>
 </head>
-<body>
-    Welcome to the API for this application!
+<body style="padding:45px">
+    Welcome to the API for <strong>nathandalal.com</strong>.
+    <br>
     This is a JSON API with the following routes.
     <ul>
-        <% for(var i = 0; i < routes.length; i++) { %>
-        <li><%= routes[i] %></li>
-        <% } %>
+        <% routes.forEach(function(route) { %>
+        <li><h6><%= route %></h6></li>
+        <% }) %>
     </ul>
 </body>
 

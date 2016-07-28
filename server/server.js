@@ -1,11 +1,10 @@
 import express from 'express'
 import http from 'http'
-
-import apiRoutes from './api/index'
+import config from './config'
 
 const app = express()
-const port = 7777
 
+import apiRoutes from './api/index'
 app.use('/api', apiRoutes)
 
 app.use(express.static('public'))
@@ -21,7 +20,7 @@ app.get('*', (req, res) => {
 const server = http.createServer(app)
 
 server
-    .listen(port)
+    .listen(config.PORT)
     .on('listening', () => {
-        console.log(`Server listening on http://localhost:${port}`)
+        console.log(`Server listening on http://localhost:${config.PORT}`)
     })
