@@ -1,1 +1,1 @@
-export * from './get-text'
+export * from './get-blog-post-list'

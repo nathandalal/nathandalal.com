@@ -1,5 +1,4 @@
 import { compose, combineReducers, createStore, applyMiddleware } from 'redux'
-import thunkMiddleware from 'redux-thunk'
 import * as reducers from '../reducers'
 import { routerMiddleware, routerReducer } from 'react-router-redux'
 import promiseMiddleware from 'redux-promise'
@@ -15,7 +14,7 @@ export default function configureStore(initialState, features) {
     )
 
     const createStoreWithMiddleware = applyMiddleware(
-        promiseMiddleware, thunkMiddleware, routerMiddleware(browserHistory)
+        promiseMiddleware, routerMiddleware(browserHistory)
     )(createStore)
 
     return createStoreWithMiddleware(reducer, initialState)

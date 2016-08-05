@@ -1,1 +1,1 @@
-export * from './text-reducer'
+export * from './blog-post-list-reducer'
