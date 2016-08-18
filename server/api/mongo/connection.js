@@ -10,7 +10,7 @@ function initDb(defaultConnectionUrl) {
     var defaultConn = mongoose.createConnection(defaultConnectionUrl)
 
     process.on('SIGINT', () => {
-        appDb.close(() => {
+        defaultConn.close(() => {
             console.log('Mongoose default connection disconnected through app termination')
             process.exit(0)
         })

@@ -1,32 +1,22 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import configureStore from './store/configureStore'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
 
 require('./styles/app.scss')
 
-import HomeView from './components/home-view'
-import BlogView from './containers/blog-view'
-
-require('es6-promise').polyfill()
-
-const store = configureStore({})
-const history = syncHistoryWithStore(browserHistory, store)
+import LandingPage from './components/landing-page'
+import BlogView from './components/blog-view'
 
 render(
-    <Provider store={store}>
-        <Router history={history}>
-            <Route path="/">
-                <IndexRoute component={HomeView} />
-                <Route path="blog">
-                    <IndexRoute component={BlogView} />
-                </Route>
+    <Router history={browserHistory}>
+        <Route path="/">
+            <IndexRoute component={LandingPage} />
+            <Route path="blog">
+                <IndexRoute component={BlogView} />
             </Route>
-        </Router>
-    </Provider>,
-  document.getElementById('app')
+        </Route>
+    </Router>,
+    document.getElementById('app')
 )
 
 

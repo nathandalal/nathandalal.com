@@ -1,0 +1,21 @@
+.landing-page-wrapper {
+	text-align: center;
+	padding: 5%;
+	.centered-box {
+		margin: 0 auto;
+		padding: 5%;
+		background-color: #364d63;
+	}
+}
+
+.factlist {
+	list-style-type: none;
+}
+
+.vert-spacer {
+	margin-top: 20px;
+}
+
+.link-header:first-letter {
+	text-transform: uppercase;
+}
