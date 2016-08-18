@@ -11,7 +11,7 @@
     "webpack-watch": "./node_modules/.bin/webpack -w --color",
     "dev": "npm run webpack-watch & npm run express-dev-server",
     "build": "npm run webpack",
-    "start": "npm run webpack && npm run express-server",
+    "start": "npm run express-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
