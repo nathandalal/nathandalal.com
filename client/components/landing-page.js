@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './landing-page.scss'
 
 const FactList = ({header, items}) => (
@@ -41,46 +41,52 @@ let renderLinks = () => {
 	)
 }
 
-const LandingPage = (props) => (
-    <div className="landing-page-wrapper row">
-        <div className="col-sm-1"></div>
-        <div className="centered-box col-sm-10">
-        	<h1>Nathan Dalal</h1>
-        	Learning how to teach, and teaching myself how to learn.
-        	<hr />
-        	<div className="vert-spacer" />
-        	<h6>currrently automation @ gigster and stanford '19</h6>
-        	<div className="row">
-        		<FactList
-        			header="<code />" 
-        			items={[
-        				{what: "automation", where: "Gigster", link: "https://gigster.com"},
-        				{what: "software", where: "Stanford Canary Center", link: "http://canarycenter.stanford.edu"},
-        				{what:"gene research", where: "SIMR", link: "http://simr.stanford.edu"}
-        			]}
-        			leftJustified />
-        		<FactList 
-        			header="education"
-        			items={[
-        				{what: "observer", where: "Education Technology", link: "https://medium.com/the-silicon-classroom"},
-        				{what: "student", where: "Stanford '19", link: "http://stanford.edu"},
-        				{what: "student", where: "The Harker School '15", link: "http://harker.org"}
-        			]} />
-        		<FactList 
-        			header="fun"
-        			items={[
-        				{what: "singer, arranger", where: "Stanford Raagapella", link: "http://raagapella.com"},
-        				{what: "organizer", where: "Stanford Sanskriti", link: "http://sanskriti.stanford.edu"},
-        				{what: "mega-fan", where: "Golden State Warriors", link: "http://bit.do/warriors_theme"}
-        			]} />
-        	</div>
-        	<hr />
-        	{renderLinks()}
-        	<hr />
-        	<div><a href="mailto:nathanhdalal@gmail.com">nathanhdalal@gmail.com</a></div>
-        </div>
-        <div className="col-sm-1"></div>
-    </div>
-)
+export default class LandingPage extends Component {
+    constructor(props) {
+        super(props)
+    }
 
-export default LandingPage
+    render() {
+        return (
+            <div className="landing-page-wrapper row">
+                <div className="col-sm-1"></div>
+                <div className="centered-box col-sm-10">
+                    <h1>Nathan Dalal</h1>
+                    Learning how to teach, and teaching myself how to learn.
+                    <hr />
+                    <div className="vert-spacer" />
+                    <h6>currrently automation @ gigster and stanford '19</h6>
+                    <div className="row">
+                        <FactList
+                            header="<code />" 
+                            items={[
+                                {what: "automation", where: "Gigster", link: "https://gigster.com"},
+                                {what: "software", where: "Stanford Canary Center", link: "http://canarycenter.stanford.edu"},
+                                {what:"gene research", where: "SIMR", link: "http://simr.stanford.edu"}
+                            ]}
+                            leftJustified />
+                        <FactList 
+                            header="education"
+                            items={[
+                                {what: "observer", where: "Education Technology", link: "https://medium.com/the-silicon-classroom"},
+                                {what: "student", where: "Stanford '19", link: "http://stanford.edu"},
+                                {what: "student", where: "The Harker School '15", link: "http://harker.org"}
+                            ]} />
+                        <FactList 
+                            header="fun"
+                            items={[
+                                {what: "singer, arranger", where: "Stanford Raagapella", link: "http://raagapella.com"},
+                                {what: "organizer", where: "Stanford Sanskriti", link: "http://sanskriti.stanford.edu"},
+                                {what: "mega-fan", where: "Golden State Warriors", link: "http://bit.do/warriors_theme"}
+                            ]} />
+                    </div>
+                    <hr />
+                    {renderLinks()}
+                    <hr />
+                    <div><a href="mailto:nathanhdalal@gmail.com">nathanhdalal@gmail.com</a></div>
+                </div>
+                <div className="col-sm-1"></div>
+            </div>
+        )
+    }
+}

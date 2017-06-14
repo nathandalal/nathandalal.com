@@ -18,5 +18,3 @@ export default class BlogView extends Component {
         );
     }
 }
-
-export default BlogView

@@ -5,5 +5,9 @@ module.exports = {
     DEVMODE: (process.env.NODE_ENV != 'production'),
     MONGO: {
         URL: process.env.MONGODB_URI || "mongodb://localhost/nathandalal-com-dev"
+    },
+    AIRTABLE: {
+    	API_KEY: process.env.AIRTABLE_API_KEY,
+    	BASE: "appOYMihRk3B4e0MV"
     }
 }

@@ -6,10 +6,11 @@ router.use(express.static('public'))
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(bodyParser.json())
 
-import MongoHandler from './mongo/handler'
+import AirtableHandler from './airtable/handler'
 
 var availableRoutes = [
-    '/blog-posts'
+    '/tagline',
+    '/experiences'
 ]
 
 router.get('/', (req, res) => {
@@ -23,19 +24,16 @@ const ErrorResponses = {
     badUserRequestError: (res, route, reason) => res.status(400).send({ error: `Invalid user request to ${route} API endpoint.`, reason: reason })
 }
 
-//api available request routes and responses
-router.post(availableRoutes[0], (req, res) => {
-    if (!(req.body) || Object.keys(req.body).length == 0) 
-        return ErrorResponses.badUserRequestError(res, availableRoutes[0], "Empty POST request")
-    MongoHandler.addPost(req.body)
-    .then(blogPost => {
-        res.send({
-            published: true,
-            title: blogPost.title,
-            created: blogPost.created
-        })
-    })
-    .catch(e => ErrorResponses.badUserRequestError(res, availableRoutes[0], e))
+router.get(availableRoutes[0], (req, res) => {
+    AirtableHandler.getMiscellaneous()
+    .then(data => res.send(data.find(piece => piece["Type"].toLowerCase() == "tagline")))
+    .catch(e => internalServerError(res, e))
+})
+
+router.get(availableRoutes[1], (req, res) => {
+    AirtableHandler.getExperiences()
+    .then(data => res.send(data))
+    .catch(e => internalServerError(res, e))
 })
 
 //nothing matched our api requests, return 404
