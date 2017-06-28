@@ -9,6 +9,10 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 
+app.get('/random', function (req, res) {
+	res.render('random');
+})
+
 app.get('/', function (req, res) {
 	Promise.all([
 		AirtableHandler.getExperiences("Education"),
