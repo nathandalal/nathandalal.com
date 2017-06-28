@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% include "partials/head.html" %}
+    <title>Nathan Dalal</title>
+</head>
+<body>
+	<div class="landing-page-wrapper row">
+		<div class="col-sm-1"></div>
+		<div class="centered-box col-sm-10">
+			<h1>Nathan Dalal</h1>
+			<!-- react-text: 5 -->Learning how to teach, and teaching myself how to learn.<!-- /react-text -->
+			<hr>
+			<div class="vert-spacer"></div>
+			<h6>{{ tagline }}</h6>
+			<div class="row">
+				<ul class="factlist col-lg-4">
+					<h3>education</h3>
+					{% for item in educitems %}
+					<li class="row">
+						<div class="col-xs-5">{{ item.Role.toLowerCase() }}</div>
+						<div class="col-xs-1">@</div>
+						<div class="col-xs-5" style="text-align: left;"><a href={{ item.Link }}>{{ item.Affiliation }}</a></div>
+					</li>
+					{% endfor %}
+				</ul>
+				<ul class="factlist col-lg-4">
+					<h3>&lt;code /&gt;</h3>
+					{% for item in codeitems %}
+					<li class="row">
+						<div class="col-xs-5">{{ item.Role.toLowerCase() }}</div>
+						<div class="col-xs-1">@</div>
+						<div class="col-xs-5" style="text-align: left;"><a href={{ item.Link }}>{{ item.Affiliation }}</a></div>
+					</li>
+					{% endfor %}
+				</ul>
+				<ul class="factlist col-lg-4">
+					<h3>~ fun ~</h3>
+					{% for item in funitems %}
+					<li class="row">
+						<div class="col-xs-5">{{ item.Role.toLowerCase() }}</div>
+						<div class="col-xs-1">@</div>
+						<div class="col-xs-5" style="text-align: left;"><a href={{ item.Link }}>{{ item.Affiliation }}</a></div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<hr>
+			<div class="links row">
+				<div class="spacer hidden-sm-down col-md-3 col-lg-3"></div>
+				<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+					<h6 class="link-header">linkedin</h6>
+					<a href="https://linkedin.com/in/nathandalal"><img width="40px" height="40px" src="/images/links/linkedin.png"></a>
+				</div>
+				<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+					<h6 class="link-header">github</h6>
+					<a href="https://github.com/nathandalal"><img width="40px" height="40px" src="/images/links/github.png"></a>
+				</div>
+				<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+					<h6 class="link-header">resume</h6>
+					<a href="/assets/resume.pdf"><img width="60px" height="60px" src="/images/links/resume.png"></a>
+				</div>
+				<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+					<h6 class="link-header">medium</h6>
+					<a href="https://medium.com/@nathanhdalal"><img width="40px" height="40px" src="/images/links/medium.png"></a>
+				</div>
+				<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+					<h6 class="link-header">twitter</h6>
+					<a href="https://twitter.com/nathanhdalal"><img width="40px" height="40px" src="/images/links/twitter.png"></a>
+				</div>
+				<div class="spacer hidden-sm-down col-md-3 col-lg-3"></div>
+			</div>
+			<hr>
+			<div><a href="mailto:nathanhdalal@gmail.com">nathanhdalal@gmail.com</a></div>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+</body>
+
+</body>
+<script src="/js/bootstrap.min.js"></script>
+</html>
