@@ -13,13 +13,13 @@
 			<hr>
 			<div class="vert-spacer"></div>
 			<h6>{{ tagline }}</h6>
-			<div class="row">
+			<div class="row text-center">
 				<ul class="factlist col-lg-4">
 					<h3>education</h3>
 					{% for item in educitems %}
 					<li class="row">
 						<div class="col-xs-5">{{ item.Role.toLowerCase() }}</div>
-						<div class="col-xs-1">@</div>
+						<div class="col-xs-2">@</div>
 						<div class="col-xs-5" style="text-align: left;"><a href={{ item.Link }}>{{ item.Affiliation }}</a></div>
 					</li>
 					{% endfor %}
@@ -29,7 +29,7 @@
 					{% for item in codeitems %}
 					<li class="row">
 						<div class="col-xs-5">{{ item.Role.toLowerCase() }}</div>
-						<div class="col-xs-1">@</div>
+						<div class="col-xs-2">@</div>
 						<div class="col-xs-5" style="text-align: left;"><a href={{ item.Link }}>{{ item.Affiliation }}</a></div>
 					</li>
 					{% endfor %}
@@ -39,7 +39,7 @@
 					{% for item in funitems %}
 					<li class="row">
 						<div class="col-xs-5">{{ item.Role.toLowerCase() }}</div>
-						<div class="col-xs-1">@</div>
+						<div class="col-xs-2">@</div>
 						<div class="col-xs-5" style="text-align: left;"><a href={{ item.Link }}>{{ item.Affiliation }}</a></div>
 					</li>
 					{% endfor %}
@@ -47,20 +47,20 @@
 			</div>
 			<hr>
 			<div class="links row">
-				<div class="spacer col-xs-1 col-sm-1 col-md-4 col-lg-4"></div>
-				<div class="col-xs-3 col-sm-3 col-md-1 col-lg-1">
+				<div class="spacer col-xs-1 col-sm-1 col-md-1 col-lg-4"></div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-1">
 					<h6 class="link-header">github</h6>
 					<a href="https://github.com/nathandalal"><img width="40px" height="40px" src="/images/links/github.png"></a>
 				</div>
-				<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
 					<h6 class="link-header">résumé</h6>
 					<a href="/assets/resume.pdf"><img width="60px" height="60px" src="/images/links/resume.png"></a>
 				</div>
-				<div class="col-xs-3 col-sm-3 col-md-1 col-lg-1">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-1">
 					<h6 class="link-header">linkedin</h6>
 					<a href="https://linkedin.com/in/nathandalal"><img width="40px" height="40px" src="/images/links/linkedin.png"></a>
 				</div>
-				<div class="spacer col-xs-1 col-sm-1 col-md-4 col-lg-4"></div>
+				<div class="spacer col-xs-1 col-sm-1 col-md-1 col-lg-4"></div>
 			</div>
 			<p class="email-display">nathanhdalal [at] gmail</p>
 			<hr>
