@@ -13,7 +13,14 @@
   margin-top: 20px; }
 
 .link-header:first-letter {
-  text-transform: uppercase; }
+  text-transform: uppercase; 
+}
+
+.email-display {
+  padding-top: 1.5em;
+  color: #ff6666;
+}
+
 @-webkit-keyframes fade-in {
   0% {
       opacity: 0;

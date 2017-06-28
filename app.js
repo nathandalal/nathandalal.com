@@ -1,5 +1,3 @@
-'use strict';
-
 var express = require('express'),
     engines = require('consolidate'),
     app = express(),
@@ -19,7 +17,6 @@ app.get('/', function (req, res) {
 		AirtableHandler.getMiscellaneous()
 	])
 	.then(function (data) {
-		console.log(data[0]);
 		res.render('index', {
 			educitems: data[0],
 			codeitems: data[1],
