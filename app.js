@@ -9,25 +9,30 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 
-app.get('/random', function (req, res) {
-	res.render('random');
+app.get('/', function (req, res) {
+	res.render('index');
 })
 
-app.get('/', function (req, res) {
-	Promise.all([
-		AirtableHandler.getExperiences("Education"),
-		AirtableHandler.getExperiences("Code"),
-		AirtableHandler.getExperiences("Fun"),
-		AirtableHandler.getMiscellaneous()
-	])
-	.then(function (data) {
-		res.render('index', {
-			educitems: data[0],
-			codeitems: data[1],
-			funitems: data[2],
-			tagline: data[3][0]["Information"]
-		});
-	})
+app.get('/software', function (req, res) {
+	res.render('software');
+})
+
+app.get('/old', function (req, res) {
+	res.render('old')
+	// Promise.all([
+	// 	AirtableHandler.getExperiences("Education"),
+	// 	AirtableHandler.getExperiences("Code"),
+	// 	AirtableHandler.getExperiences("Fun"),
+	// 	AirtableHandler.getMiscellaneous()
+	// ])
+	// .then(function (data) {
+	// 	res.render('old', {
+	// 		educitems: data[0],
+	// 		codeitems: data[1],
+	// 		funitems: data[2],
+	// 		tagline: data[3][0]["Information"]
+	// 	});
+	// })
 });
 
 app.get('*', function(req, res) {

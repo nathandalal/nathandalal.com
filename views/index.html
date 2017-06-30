@@ -1,74 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	{% include "partials/head.html" %}
-    <title>Nathan Dalal</title>
+	{% include "partials/head-bulma.html" %}
+	<title>Nathan Dalal</title>
 </head>
 <body>
-	<div class="landing-page-wrapper row">
-		<div class="col-sm-1"></div>
-		<div class="centered-box col-sm-10">
-			<h1>Nathan Dalal</h1>
-			<!-- react-text: 5 -->Learning how to teach, and teaching myself how to learn.<!-- /react-text -->
-			<hr>
-			<div class="vert-spacer"></div>
-			<h6>{{ tagline }}</h6>
-			<div class="row text-center">
-				<ul class="factlist col-lg-4">
-					<h3>education</h3>
-					{% for item in educitems %}
-					<li class="row">
-						<div class="col-xs-5">{{ item.Role.toLowerCase() }}</div>
-						<div class="col-xs-2">@</div>
-						<div class="col-xs-5" style="text-align: left;"><a href={{ item.Link }}>{{ item.Affiliation }}</a></div>
-					</li>
-					{% endfor %}
-				</ul>
-				<ul class="factlist col-lg-4">
-					<h3>&lt;code /&gt;</h3>
-					{% for item in codeitems %}
-					<li class="row">
-						<div class="col-xs-5">{{ item.Role.toLowerCase() }}</div>
-						<div class="col-xs-2">@</div>
-						<div class="col-xs-5" style="text-align: left;"><a href={{ item.Link }}>{{ item.Affiliation }}</a></div>
-					</li>
-					{% endfor %}
-				</ul>
-				<ul class="factlist col-lg-4">
-					<h3>~ fun ~</h3>
-					{% for item in funitems %}
-					<li class="row">
-						<div class="col-xs-5">{{ item.Role.toLowerCase() }}</div>
-						<div class="col-xs-2">@</div>
-						<div class="col-xs-5" style="text-align: left;"><a href={{ item.Link }}>{{ item.Affiliation }}</a></div>
-					</li>
-					{% endfor %}
-				</ul>
-			</div>
-			<hr>
-			<div class="links row">
-				<div class="spacer col-xs-1 col-sm-1 col-md-1 col-lg-4"></div>
-				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-1">
-					<h6 class="link-header">github</h6>
-					<a href="https://github.com/nathandalal"><img width="40px" height="40px" src="/images/links/github.png"></a>
-				</div>
-				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
-					<h6 class="link-header">résumé</h6>
-					<a href="/assets/resume.pdf"><img width="60px" height="60px" src="/images/links/resume.png"></a>
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-1">
-					<h6 class="link-header">linkedin</h6>
-					<a href="https://linkedin.com/in/nathandalal"><img width="40px" height="40px" src="/images/links/linkedin.png"></a>
-				</div>
-				<div class="spacer col-xs-1 col-sm-1 col-md-1 col-lg-4"></div>
-			</div>
-			<p class="email-display">nathanhdalal [at] gmail</p>
-			<hr>
-		</div>
-		<div class="col-sm-1"></div>
-	</div>
-</body>
+	<section class="hero is-fullheight">
+	  {% include "partials/header-bulma.html" %}
 
+	  <!-- Hero content: will be in the middle -->
+	  <div id="main-body" class="hero-body">
+	    <div class="container has-text-centered">
+	      <div class="tile is-ancestor">
+	      	<div class="tile is-parent">
+				    <article class="tile is-child notification is-success">
+				      <div class="content">
+				        <p class="title">Tall tile</p>
+				        <p class="subtitle">With even more content</p>
+				        <div class="content">
+				          <!-- Content -->
+				        </div>
+				      </div>
+				    </article>
+				  </div>
+				  <div class="tile is-vertical is-8">
+				    <div class="tile">
+				      <div class="tile is-parent is-vertical">
+				        <article class="tile is-child notification is-primary">
+				          <p class="title">Vertical...</p>
+				          <p class="subtitle">Top tile</p>
+				        </article>
+				        <article class="tile is-child notification is-warning">
+				          <p class="title">...tiles</p>
+				          <p class="subtitle">Bottom tile</p>
+				        </article>
+				      </div>
+				      <div class="tile is-parent">
+				        <article class="tile is-child notification is-info">
+				          <p class="title">Middle tile</p>
+				          <p class="subtitle">With an image</p>
+				          <figure class="image is-4by3">
+				            <img src="http://bulma.io/images/placeholders/640x480.png">
+				          </figure>
+				        </article>
+				      </div>
+				    </div>
+				    <div class="tile is-parent">
+				      <article class="tile is-child notification is-danger">
+				        <p class="title">Wide tile</p>
+				        <p class="subtitle">Aligned with the right tile</p>
+				        <div class="content">
+				          <!-- Content -->
+				        </div>
+				      </article>
+				    </div>
+				  </div>
+				</div>
+	    </div>
+	  </div>
+
+	  <!-- Hero footer: will stick at the bottom -->
+    <div class="hero-foot">
+      <div class="tabs is-centered is-boxed">
+        <ul>
+          <li class="is-active">
+            <a href="/">
+              <span class="icon is-small"><i class="fa fa-image"></i></span>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li>
+            <a href="/software">
+              <span class="icon is-small"><i class="fa fa-laptop"></i></span>
+              <span>Software</span>
+            </a>
+          </li>
+          <li>
+            <a href="/education">
+              <span class="icon is-small"><i class="fa fa-book"></i></span>
+              <span>Education</span>
+            </a>
+          </li>
+          <li>
+            <a href="/fun">
+              <span class="icon is-small"><i class="fa fa-music"></i></span>
+              <span>For Fun</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+	</section>
 </body>
-<script src="/js/bootstrap.min.js"></script>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% include "partials/head-bulma.html" %}
+	<title>Nathan Dalal - Software</title>
+</head>
+<body>
+	<section class="hero is-fullheight">
+	  {% include "partials/header-bulma.html" %}
+
+	  <!-- Hero content: will be in the middle -->
+	  <div id="main-body" class="hero-body">
+	    <div class="container has-text-centered">
+	      {% include "partials/sample-box.html" %}
+        <div class="columns is-desktop">
+          <div class="column is-8">
+            {% include "partials/sample-box.html" %}
+          </div>
+          <div class="column">{% include "partials/sample-box.html" %}</div>
+        </div>
+
+
+
+	    </div>
+	  </div>
+
+	  <!-- Hero footer: will stick at the bottom -->
+    <div class="hero-foot">
+      <div class="tabs is-centered is-boxed">
+        <ul>
+          <li>
+            <a href="/">
+              <span class="icon is-small"><i class="fa fa-image"></i></span>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li class="is-active">
+            <a>
+              <span class="icon is-small"><i class="fa fa-laptop"></i></span>
+              <span>Software</span>
+            </a>
+          </li>
+          <li>
+            <a href="/education">
+              <span class="icon is-small"><i class="fa fa-book"></i></span>
+              <span>Education</span>
+            </a>
+          </li>
+          <li>
+            <a href="/fun">
+              <span class="icon is-small"><i class="fa fa-music"></i></span>
+              <span>For Fun</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+	</section>
+</body>
+</html>
