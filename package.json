@@ -5,6 +5,10 @@
     "type": "git",
     "url": "https://github.com/nathandalal/nathandalal.com.git"
   },
+  "engines": {
+    "node": "^8.1.4",
+    "npm": "^5.2.0"
+  },
   "description": "A personal website for Nathan Dalal.",
   "main": "app.js",
   "dependencies": {
