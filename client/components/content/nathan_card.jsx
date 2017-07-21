@@ -1,9 +1,9 @@
 import React from 'react'
 
-const NathanCard = ({ Status = "Stanford '19", Location = "Fremont, CA", Description = "Learning how to teach and teaching myself how to learn." }) => (
-  <div className="columns is-mobile">
-    <div className="column is-offset-4-desktop is-4-desktop is-offset-3-tablet is-6-tablet is-12-mobile">
-      <div className="card" style={{maxWidth: "90%", margin: "0 auto"}}>
+const NathanCard = ({ isSmall = false, Status = "Stanford '19", Location = "Fremont, CA", Description = "Learning how to teach and teaching myself how to learn." }) => (
+  <div className="columns">
+    <div className={`column is-offset-4-desktop is-4-desktop is-offset-3-tablet is-6-tablet is-offset-1-mobile is-10-mobile`}>
+      <div className="card container">
         <div className="card-image">
           <figure className="image is-128by128">
             <img src="/images/nathan.jpg" alt="Nathan Dalal" />

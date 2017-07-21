@@ -8,18 +8,31 @@ import Card from './content/card.jsx'
 export default class Content extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {width: window.innerWidth}
+    this.updateDimensions = this.updateDimensions.bind(this)
+    this.SMALL_THRESHOLD = 512
+  }
+
+  updateDimensions() {
+    this.setState({width: window.innerWidth})
+  }
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions)
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions)
   }
 
   render() {
     let { routes, location, misc } = this.props
     console.log(this.props)
     return (
-      <div>
-        <NathanCard {...misc} />
+      <div className="container">
+        <NathanCard {...misc} isSmall={this.state.width < this.SMALL_THRESHOLD} />
         <hr />
-        <Tabs routes={routes} location={location} />
+        <Tabs routes={routes} location={location} isSmall={this.state.width < this.SMALL_THRESHOLD} />
         {routes.map(route => route.path).includes(location.pathname) ? this.renderListViewer() : this.renderNotFound()}
-        <Tabs routes={routes} location={location} />
+        <Tabs routes={routes} location={location} isSmall={this.state.width < this.SMALL_THRESHOLD} />
       </div>
     )
   }
