@@ -25,7 +25,7 @@ export default class Content extends React.Component {
 
   render() {
     let { routes, location, misc } = this.props
-    console.log(this.props)
+    
     return (
       <div className="container">
         <NathanCard {...misc} isSmall={this.state.width < this.SMALL_THRESHOLD} />
