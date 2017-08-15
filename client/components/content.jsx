@@ -40,6 +40,13 @@ export default class Content extends React.Component {
   renderListViewer() {
     let { list, location } = this.props
 
+    if (list.length == 0) return (
+      <div className="content container">
+        <h6>Loading</h6>
+        <span className="icon"><i className="fa fa-refresh fa-spin"></i></span>
+      </div>
+    )
+
     let topic = location.pathname.substr(1)
     let sublist = list.filter(card => topic ? card.Type == topic : card.Current)
 

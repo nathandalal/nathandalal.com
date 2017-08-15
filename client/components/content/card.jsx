@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Card = ({ Image = [{url: "http://bulma.io/images/placeholders/64x64.png"}], Affiliation, Role, Team, Skills = [], Link, Location, Description, Current, JSONLinks }) => { 
-	let links = JSONLinks ? JSON.parse(JSONLinks) : []
+	let links = JSONLinks ? JSON.parse(JSONLinks) : null
 
 	return (
 		<div className="box">
