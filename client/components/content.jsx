@@ -48,7 +48,7 @@ export default class Content extends React.Component {
     )
 
     let topic = location.pathname.substr(1)
-    let sublist = list.filter(card => topic ? card.Type == topic : card.Current)
+    let sublist = list.filter(card => topic ? card.Type.includes(topic) : card.Current)
 
     return <div style={{paddingBottom: "20px"}}>{sublist.map(element => <Card key={element.Affiliation} {...element}/>)}</div>
   }

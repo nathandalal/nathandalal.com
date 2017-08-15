@@ -31,6 +31,9 @@ const NathanCard = ({ isSmall = false, Status = "Stanford '19", Location = "Frem
 
           <div className="content">
             <h6>{Description}</h6>
+            <h5 style={{marginBottom: 0}}>
+              <small><a href="https://nathandalal.sarahah.com">Send me anonymous feedback!</a></small>
+            </h5>
           </div>
         </div>
       </div>
