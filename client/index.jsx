@@ -29,7 +29,7 @@ class Index extends React.Component {
     let routes = [
       { path: "/",            name: "Current", 		  icon: "image"},
       { path: "/software",    name: "Software",     icon: "laptop"},
-      { path: "/education",   name: "Education",    icon: "book"},
+      { path: "/teaching",    name: "Teaching",     icon: "book"},
       { path: "/fun",         name: "For Fun",      icon: "dribbble"}
     ]
 
