@@ -15,10 +15,10 @@ app.use(express.static('public'))
 
 app.get('*', (req, res) => {
   res.render('pages/index', {
-		appname: config.APPNAME
+	appname: config.APPNAME
   })
 })
 
-app.listen(config.PORT, function () {
+app.listen(config.PORT, () => {
   console.log(`App currently running; navigate to localhost:${config.PORT} in a web browser.`)
 })
