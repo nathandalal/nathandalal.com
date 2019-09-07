@@ -1,24 +1,32 @@
 const express = require('express')
 const engines = require('consolidate')
-const config = require('./config')
+const serverless = require('serverless-http')
 
+const config = require('./config')
 const apiRoutes = require('./api/index')
 
 const app = express()
-
-app.use('/api', apiRoutes)
-
 app.engine('njk', engines.nunjucks)
 app.set('view engine', 'njk')
 app.set('views', __dirname + '/views')
 app.use(express.static('public'))
 
-app.get('*', (req, res) => {
+const mainRoutes = express.Router();
+mainRoutes.get('*', (req, res) => {
   res.render('pages/index', {
 	appname: config.APPNAME
   })
 })
 
-app.listen(config.PORT, () => {
-  console.log(`App currently running; navigate to localhost:${config.PORT} in a web browser.`)
-})
+if (config.DEVMODE) {
+	app.use('/api', apiRoutes)
+	app.use('/', mainRoutes)
+	app.listen(config.PORT, config.HOST, () => {
+	  console.log(`App currently running; navigate to ${config.HOST}:${config.PORT} in a web browser.`)
+	})
+} else {
+	app.use('/.netlify/functions/server/api', apiRoutes)
+	app.use('/.netlify/functions/server', mainRoutes)  // path must route to lambda
+	module.exports = app
+	module.exports.handler = serverless(app)
+}
