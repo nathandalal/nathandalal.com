@@ -6,7 +6,7 @@ const NathanCard = ({ isSmall = false, Status = "Stanford '19", Location = "Frem
       <div className="card container">
         <div className="card-image">
           <figure className="image is-128by128">
-            <img src="/images/nathan.jpg" alt="Nathan Dalal" />
+            <img src="/images/nathan.png" alt="Nathan Dalal" />
           </figure>
         </div>
         <div className="card-content">
